@@ -7,19 +7,11 @@ import webDesign from "@/public/images/web-design.jpg";
 import dev from "@/public/images/dev.jpg";
 
 export const metadata = {
-  title: "Y Phan' Learning Curve",
+  title: "Y Phan' Portfolios",
 };
 
 export default function Home() {
   const items = [
-    {
-      field: "Graphic Design",
-      externalUrl:
-        "https://drive.google.com/file/d/13G9Lb7ho-t9AlVZBZo3giiuxPE6d8NII/view?usp=sharing",
-      lasteUpdate: new Date("2024-04-25"),
-      image: portfolio3D,
-      projectsCount: 3,
-    },
     {
       field: "3D Character Modelling",
       externalUrl:
@@ -52,11 +44,19 @@ export default function Home() {
       image: dev,
       projectsCount: 2,
     },
+    {
+      field: "Graphic Design",
+      externalUrl:
+        "https://drive.google.com/file/d/13G9Lb7ho-t9AlVZBZo3giiuxPE6d8NII/view?usp=sharing",
+      lasteUpdate: new Date("2024-04-25"),
+      image: portfolio3D,
+      projectsCount: 3,
+    },
   ];
 
   return (
-    <main className="flex min-h-screen flex-col">
-      <ul className="py-2 grid grid-cols-3 gap-x-10 gap-y-8">
+    <main className="flex flex-col">
+      <ul className="py-2 grid md:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8">
         {items.map((item) => (
           <li key={item.field}>
             <a
@@ -71,17 +71,19 @@ export default function Home() {
                 <div className="absolute w-full h-full top-0 left-0 -z-10">
                   <Image src={item.image} width="100%" height="100%" />
                 </div>
+                <div className="absolute top-3 right-3 bg-slate-300 text-slate-800 font-bold py-1 px-3 rounded-full">
+                  <span className="text-sm">{item.projectsCount || 0}</span>
+                </div>
               </div>
-              <div className="p-6 relative">
+              <div className="p-6">
                 <span className="block">{item.field}</span>
                 <span className="block text-gray-500 text-sm">
-                  Last update: {item.lasteUpdate.getFullYear()}-
-                  {item.lasteUpdate.getUTCMonth() + 1}-
-                  {item.lasteUpdate.getUTCDate()}
+                  Last update:{" "}
+                  {item.lasteUpdate.toLocaleString("default", {
+                    month: "short",
+                  })}{" "}
+                  {item.lasteUpdate.getFullYear()}
                 </span>
-                <div className="absolute top-8 right-6 bg-slate-300 text-slate-800 font-bold py-1 px-3 rounded-full">
-                  {item.projectsCount || 0}
-                </div>
               </div>
             </a>
           </li>

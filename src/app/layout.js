@@ -2,6 +2,7 @@ import { Inter, Roboto_Mono } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 import Header from "../components/header";
+import Footer from "../components/footer";
 
 const inter = Inter({ subsets: ["vietnamese"] });
 const roboto_mono = Roboto_Mono({ subsets: ["vietnamese"] });
@@ -17,6 +18,7 @@ export default function RootLayout({ children }) {
       <body className={String.prototype.concat(roboto_mono.className, " ")}>
         <Header />
         <div className="max-w-6xl mx-auto p-8">{children}</div>
+        <Footer />
       </body>
     </html>
   );
