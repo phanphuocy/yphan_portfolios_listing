@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  /* background: linear-gradient(-45deg, #F5FCFF, #DBF3FA, #DCE3F7, #F3F3F3, #DBF3FA); */
+  /* background-size: 400% 400%; */
+  animation: gradient 300s ease infinite;
+  height: 100vh;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.longforms-inline-image {
+  position: relative;
+  transform: translateX(-24px);
+  max-width: calc(100% + 48px);
+  filter: grayscale(1);
+}
+
+.longforms-inline-image:hover {
+  filter: grayscale(0);
+  transition: all 750ms ease;
+}
